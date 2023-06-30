@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="scriptPagina2.js"></script>
+    <link rel="shortcut icon" href="https://icons.iconarchive.com/icons/carlosjj/google-jfk/128/forms-icon.png" width="128" height="128" type="image/x-icon">
+    <title>Form de Informações</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <form id="formPagina2">
+
+            <h2>Preencha seus dados</h2>
+
+            <div class="inputControl">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome">
+                <div class="errorValidation"></div>
+            </div>
+
+            <div class="inputControl">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" id="sobrenome" name="sobrenome">
+                <div class="errorValidation"></div>
+            </div>
+
+            <div class="inputControl">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                <div class="errorValidation"></div>
+            </div>
+
+            <div class="inputControl">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="teste@teste.com">
+                <div class="errorValidation"></div>
+            </div>
+
+            <div class="inputControl">
+                <label for="cep">Cep</label>
+                <input type="text" id="cep" name="cep" placeholder="00000-000">
+                <div class="errorValidation"></div>
+            </div>
+
+            <div class="inputControl">
+                <label for="endereco">Endereço</label>
+                <input type="text" id="endereco" name="endereco">
+                <div class="errorValidation"></div>
+            </div>
+
+            <div class="inputControl">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <input type="date" id="dataNascimento" name="dataNascimento">
+                <div class="errorValidation"></div>
+            </div>
+
+            <div class="inputRadio">
+                <p>Número de Filhos</p>
+
+                <div class="inputRadioOptions">
+                    <input type="radio" id="0" name="filhos" value="0" checked>
+                    <label for="0">0</label>
+                </div>
+
+                <div class="inputRadioOptions">
+                    <input type="radio" id="1" name="filhos" value="1">
+                    <label for="1">1</label>
+                </div>
+
+                <div class="inputRadioOptions">
+                    <input type="radio" id="2" name="filhos" value="2">
+                    <label for="2">2</label>
+                </div>
+
+                <div class="inputRadioOptions">
+                    <input type="radio" id="3+" name="filhos" value="3+">
+                    <label for="3+">3+</label>
+                </div>
+            </div>
+
+            <div class="inputControl">
+                <label for="jogoFavorito">Jogo Favorito</label>
+                <input type="text" id="jogoFavorito" name="jogoFavorito">
+                <div class="errorValidation"></div>
+            </div>
+
+            <div class="inputControl">
+                <label for="fotoPerfil">Foto de Perfil</label>
+                <input type="file" id="fotoPerfil" name="fotoPerfil">
+            </div>
+
+            <div class="inputControl">
+                <label for="corFavorita">Cor Favorita</label>
+                <input type="color" id="corFavorita" name="corFavorita" value="#2938c2">
+            </div>
+
+            <button type="submit">Save</button>
+
+        </form>
+
+    </div>
+    
+</body>
+</html>

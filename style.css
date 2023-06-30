@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --themeColor: hsl(234, 65%, 46%);
+    --botaoTextColor: hsl(0, 0%, 100%);
+    --errorColor: hsl(348, 100%, 61%);
+    --successColor: hsl(154, 91%, 40%);
+}
+
+body{
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+    width: 320px;
+    margin: 20vh auto;
+    padding: 20px;
+    background-color: hsl(0, 0%, 96%);
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+form h2{
+    color: hsl(198, 43%, 11%);
+    text-align: center;
+    margin: 0 0 10px;
+    border-bottom: 2px solid var(--themeColor);
+}
+
+form button{
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    color: var(--botaoTextColor);
+    background-color: var(--themeColor);
+    border: none;
+    border-radius: 4px;
+}
+
+form button:active {
+    transform: translateY(1px);
+}
+
+.inputControl{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputControl input{
+    border: 2px solid hsl(0, 0%, 94%);
+    border-radius: 4px;
+    display: block;
+    font-size: 12px;
+    padding: 10px;
+    width: 100%;
+}
+
+.inputRadio{
+    margin: 7px 0 7px;
+}
+
+.inputRadioOptions{
+    display: inline-block;
+    padding: 8px;
+}
+
+#fotoPerfil{
+    font-style: italic;
+}
+
+.inputControl input:focus{
+    outline: none;
+}
+
+.inputControl.success input{
+    border-color: var(--successColor);
+}
+
+.inputControl.error input{
+    border-color: var(--errorColor);
+}
+
+.errorLogin{
+    display: none;
+    color: var(--errorColor);
+    font-size: 12px;
+    height: 13px;
+    margin-top: 15px;
+}
+
+.errorValidation{
+    color: var(--errorColor);
+    font-size: 10px;
+    height: 13px;
+}
+
+label, p{
+    padding: 5px;
+}
+
+#corFavorita{
+    height: 50px;
+    width: 50%;
+}
