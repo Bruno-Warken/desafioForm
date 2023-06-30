@@ -63,6 +63,25 @@ form.addEventListener('submit', evento => {
     console.log(formValues);
 })
 
+function previewFile() {
+    const preview = document.querySelector("img");
+    const file = document.querySelector("input[type=file]").files[0];
+    const fotoPerfilDisplay = document.querySelector('.displayFotoPerfil');
+    const reader = new FileReader();
+  
+    reader.addEventListener("load",() => {
+        fotoPerfilDisplay.style.display = 'block';
+        preview.src = reader.result;
+        console.log(reader.result);
+    },
+      false
+    );
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
 // Muda a cor do botão de acordo com a cor selecionada pelo usuário
 
 corFavorita.addEventListener('input', () => {
@@ -70,7 +89,7 @@ corFavorita.addEventListener('input', () => {
     const corFavoritaHsl = hexToHSL(corFavorita);
     document.documentElement.style.setProperty('--themeColor', corFavorita);
 
-    if(corFavoritaHsl.lightness*100 < 50){
+    if(corFavoritaHsl.lightness*100 <= 50){
         document.documentElement.style.setProperty('--botaoTextColor', '#fff');
     }else{
         document.documentElement.style.setProperty('--botaoTextColor', '#000');

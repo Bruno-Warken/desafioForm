@@ -9,6 +9,7 @@
     --botaoTextColor: hsl(0, 0%, 100%);
     --errorColor: hsl(348, 100%, 61%);
     --successColor: hsl(154, 91%, 40%);
+    --inputBorderColor: hsl(0, 0%, 94%);
 }
 
 body{
@@ -52,7 +53,7 @@ form button:active {
 }
 
 .inputControl input{
-    border: 2px solid hsl(0, 0%, 94%);
+    border: 2px solid var(--inputBorderColor);
     border-radius: 4px;
     display: block;
     font-size: 12px;
@@ -105,5 +106,18 @@ label, p{
 
 #corFavorita{
     height: 50px;
-    width: 50%;
+    width: 100%;
+}
+
+.displayFotoPerfil{
+    margin: 10px auto 0;
+    width: 200px;
+    height: 200px;
+    display: none;
+}
+
+img{
+    border: 1px solid var(--themeColor);
+    border-radius: 100px;
+    object-fit: cover;
 }

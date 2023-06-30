@@ -88,15 +88,23 @@
                 <input type="text" id="jogoFavorito" name="jogoFavorito">
                 <div class="errorValidation"></div>
             </div>
-
-            <div class="inputControl">
-                <label for="fotoPerfil">Foto de Perfil</label>
-                <input type="file" id="fotoPerfil" name="fotoPerfil">
-            </div>
-
+            
             <div class="inputControl">
                 <label for="corFavorita">Cor Favorita</label>
                 <input type="color" id="corFavorita" name="corFavorita" value="#2938c2">
+            </div>
+
+            <div class="inputControl">
+                <label for="fotoPerfil">Foto de Perfil</label>
+                <input type="file" id="fotoPerfilInput" name="fotoPerfil" accept="image/*" onchange="previewFile()">
+
+                <!--Frame da imagem de perfil-->
+                <div class='displayFotoPerfil'>
+                    <picture>
+                        <img id="fotoPerfil" src="" alt="fotoPerfil" width="200px" height="200px">
+                    </picture>
+                </div>
+
             </div>
 
             <button type="submit">Save</button>
