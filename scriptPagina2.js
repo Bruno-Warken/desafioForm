@@ -1,4 +1,5 @@
 const form = document.querySelector('#formPagina2');
+let isvalidForm;
 
 form.addEventListener('submit', evento => {
 
@@ -6,65 +7,115 @@ form.addEventListener('submit', evento => {
 
     formValues = Object.fromEntries(new FormData(evento.target));
 
+    validateForm();
+
+    if(isvalidForm == true){
+
+        const formPagina2 = document.querySelector('#formPagina2');
+        const outputForm = document.querySelector('#outputForm');
+        const fotoPerfilOutput = document.querySelector('#fotoPerfilOutput');
+        const fotoPerfilForm = document.querySelector("#fotoPerfil");
+
+        fotoPerfilOutput.src = fotoPerfilForm.src;
+
+        formPagina2.style.display = 'none';
+        outputForm.style.display = 'block';
+
+        document.querySelector('#nomeOutput').innerText = `Nome completo: ${formValues.nome} ${formValues.sobrenome}`;
+        document.querySelector('#cpfOutput').innerText = `CPF: ${formValues.cpf}`;
+        document.querySelector('#emailOutput').innerText = `Email: ${formValues.email}`;
+        document.querySelector('#cepOutput').innerText = `Cep: ${formValues.cep}`;
+        document.querySelector('#enderecoOutput').innerText = `Endereço: ${formValues.endereco}`;
+        document.querySelector('#dataNascimentoOutput').innerText = `Data de Nascimento: ${formValues.dataNascimento}`;
+        document.querySelector('#filhosOutput').innerText = `Número de Filhos: ${formValues.filhos}`;
+        document.querySelector('#jogoFavoritoOutput').innerText = `Jogo Favorito: ${formValues.jogoFavorito}`;
+        document.querySelector('#corFavoritaOutput').innerText = `Cor Favorita: ${formValues.corFavorita}`;
+
+        function voltar(){
+            formPagina2.style.display = 'block';
+            outputForm.style.display = 'none';
+        }
+    }
+        
+})
+
+function validateForm(){
     if (formValues.nome.trim() === '') {
         setError(nome, 'Nome é requerido');
+        isvalidForm = false;
     } else {
         setSuccess(nome);
+        isvalidForm = true;
     }
 
     if (formValues.sobrenome.trim() === '') {
         setError(sobrenome, 'Sobrenome é requerido');
+        isvalidForm = false;
     } else {
         setSuccess(sobrenome);
+        isvalidForm = true;
     }
 
     if (formValues.cpf.trim() === '') {
         setError(cpf, 'CPF é requerido');
+        isvalidForm = false;
     } else if (!isValidCpf(formValues.cpf)) {
         setError(cpf, 'Por gentileza, informe um CPF válido');
+        isvalidForm = false;
     } else {
         setSuccess(cpf);
+        isvalidForm = true;
     }
 
     if (formValues.email.trim() === '') {
         setError(email, 'Email é requerido');
+        isvalidForm = false;
     } else if (!isValidEmail(formValues.email)) {
         setError(email, 'Por gentileza, informe um email válido');
+        isvalidForm = false;
     } else {
         setSuccess(email);
+        isvalidForm = true;
     }
 
     if (formValues.cep.trim() === '') {
         setError(cep, 'Cep é requerido');
+        isvalidForm = false;
     } else if (!isValidCep(formValues.cep)) {
         setError(cep, 'Por gentileza, informe um cep válido');
+        isvalidForm = false;
     } else {
         setSuccess(cep);
+        isvalidForm = true;
     }
 
     if (formValues.endereco.trim() === '') {
         setError(endereco, 'Endereço é requerido');
+        isvalidForm = false;
     } else {
         setSuccess(endereco);
+        isvalidForm = true;
     }
 
     if (formValues.dataNascimento.trim() === '') {
         setError(dataNascimento, 'Endereço é requerido');
+        isvalidForm = false;
     } else {
         setSuccess(dataNascimento);
+        isvalidForm = true;
     }
 
     if (formValues.jogoFavorito.trim() === '') {
-        setError(jogoFavorito, 'Jogo favorito é requerido')
+        setError(jogoFavorito, 'Jogo favorito é requerido');
+        isvalidForm = false;
     } else {
         setSuccess(jogoFavorito);
+        isvalidForm = true;
     }
+}
 
-    console.log(formValues);
-})
-
-function previewFile() {
-    const preview = document.querySelector("img");
+function previewFile(){
+    const preview = document.querySelector("#fotoPerfil");
     const file = document.querySelector("input[type=file]").files[0];
     const fotoPerfilDisplay = document.querySelector('.displayFotoPerfil');
     const reader = new FileReader();
@@ -72,15 +123,12 @@ function previewFile() {
     reader.addEventListener("load",() => {
         fotoPerfilDisplay.style.display = 'block';
         preview.src = reader.result;
-        console.log(reader.result);
-    },
-      false
-    );
+    },false);
   
     if (file) {
       reader.readAsDataURL(file);
     }
-  }
+}
 
 // Muda a cor do botão de acordo com a cor selecionada pelo usuário
 
@@ -111,7 +159,7 @@ function setSuccess(element) {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.errorValidation');
 
-    errorDisplay["imagem" + i] = '';
+    errorDisplay.innerText = '';
     inputControl.classList.add('success');
     inputControl.classList.remove('error');
 }

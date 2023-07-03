@@ -116,8 +116,22 @@ label, p{
     display: none;
 }
 
+.displayFotoPerfilOutput{
+    margin: 10px auto;
+    width: 200px;
+    height: 200px;
+}
+
 img{
     border: 1px solid var(--themeColor);
     border-radius: 100px;
     object-fit: cover;
+}
+
+#formPagina2{
+    display: block;
+}
+
+#outputForm{
+    display: none;
 }
